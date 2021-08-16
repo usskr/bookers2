@@ -1,1 +1,34 @@
-<h1></h1>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+　    <%= render 'books/book', user: @user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tboby></tboby>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size:"40x40" %>
+              </td>
+              <td>
+                <%= user.name %>
+              </td>
+              <td>
+                <%= link_to "Show", user_path(user) %>
+              </td>
+            </tr>
+          <% end %>
+        </tboby>
+      </table>
+    </div>
+  </div>
+</div>
