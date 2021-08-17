@@ -56,7 +56,9 @@
     </header>
 
     <main>
-    <%= yield %>
+      <%= flash[:notice] %>
+      <%= flash[:danger] %>
+      <%= yield %>
     </main>
 
     <footer>
