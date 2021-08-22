@@ -8,7 +8,7 @@
       <table class="table">
         <tboby>
           <tr>
-            <td >
+            <td>
               <%= link_to user_path(@book_detail.user) do %>
                 <%= attachment_image_tag @book_detail.user, :profile_image, fallback: "no_image.jpg", size:"40x40" %>
                 <br>
@@ -33,7 +33,6 @@
                 <%= link_to "Destroy", book_path(@book_detail), method: :delete, "data-confirm" => "本当に消しますか？", class:'btn btn-sm btn-danger'  %>
               <% end %>
             </td>
-
             <td>
               <% if @book_detail.favorited_by?(current_user) %>
                 <%= link_to book_favorites_path(@book_detail), method: :delete do %>
@@ -45,9 +44,38 @@
                 <% end %>
               <% end %>
             </td>
+            <td>
+              <p>コメント数:<%= @book_detail.book_comments.count %></p>
+            </td>
           </tr>
         </tboby>
       </table>
+
+      <table class="comments">
+        <tboby>
+          <% @book_detail.book_comments.each do |book_comment| %>
+          <tr>
+            <td>
+              <%= link_to user_path(@book_detail.user) do %>
+                <%= attachment_image_tag @book_detail.user, :profile_image, fallback: "no_image.jpg", size:"40x40" %>
+                <br>
+                <%= @book_detail.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= book_comment.comment %>
+            </td>
+          </tr>
+        <% end %>
+        </tboby>
+      </table>
+
+      <div class="new-comment">
+        <%= form_with(model:[@book_detail, @book_comment], local: true) do |f| %>
+          <%= f.text_area :comment, rows:'5',cols:'60' %>
+          <%= f.submit "送信" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
