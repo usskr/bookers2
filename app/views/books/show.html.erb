@@ -15,45 +15,20 @@
                 <%= @book_detail.user.name %>
               <% end %>
             </td>
-            <td>
-              <%= link_to book_path(@book_detail.id) do %>
-                <%= @book_detail.title %>
-              <% end %>
-            </td>
-            <td>
-              <%= @book_detail.body %>
-            </td>
-            <td>
-              <% if @book_detail.user == current_user %>
-                <%= link_to "Edit", edit_book_path(@book_detail), class:'btn btn-sm btn-success' %>
-              <% end %>
-            </td>
-            <td>
-              <% if @book_detail.user == current_user %>
-                <%= link_to "Destroy", book_path(@book_detail), method: :delete, "data-confirm" => "本当に消しますか？", class:'btn btn-sm btn-danger'  %>
-              <% end %>
-            </td>
-            <td>
-              <% if @book_detail.favorited_by?(current_user) %>
-                <%= link_to book_favorites_path(@book_detail), method: :delete do %>
-                  ♥<%= @book_detail.favorites.count %>
-                <% end %>
-              <% else %>
-                <%= link_to book_favorites_path(@book_detail), method: :post do %>
-                  ♡<%= @book_detail.favorites.count %>
-                <% end %>
-              <% end %>
-            </td>
-            <td>
-              <p>コメント数:<%= @book_detail.book_comments.count %></p>
-            </td>
+            <td><%= link_to @book_detail.title, book_path(@book_detail) %></td>
+            <td><%= @book_detail.body %></td>
+            <td class="favorite-btn"><%= render "favorites/favorite-btn",book: @book_detail %></td>
+            <td><%= link_to "#{@book_detail.book_comments.count} コメント", book_path(@book_detail) %></td>
+            <% if @book_detail.user == current_user %>
+              <td><%= link_to "Edit", edit_book_path(@book_detail), class:'btn btn-sm btn-success' %></td>
+              <td><%= link_to "Destroy", book_path(@book_detail), method: :delete, "data-confirm" => "本当に消しますか？", class:'btn btn-sm btn-danger'  %></td>
+            <% end %>
           </tr>
         </tboby>
       </table>
 
       <table class="comments">
-        <tboby>
-          <% @book_detail.book_comments.each do |book_comment| %>
+        <% @book_detail.book_comments.each do |book_comment| %>
           <tr>
             <td>
               <%= link_to user_path(book_comment.user) do %>
@@ -62,9 +37,7 @@
                 <%=book_comment.user.name %>
               <% end %>
             </td>
-            <td>
-              <%= book_comment.comment %>
-            </td>
+            <td><%= book_comment.comment %></td>
             <td>
               <% if book_comment.user == current_user %>
                 <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, class:'btn btn-sm btn-danger'%>
@@ -72,7 +45,6 @@
             </td>
           </tr>
         <% end %>
-        </tboby>
       </table>
 
       <div class="new-comment">
