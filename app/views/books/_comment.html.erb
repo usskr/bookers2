@@ -1,5 +1,5 @@
 <table class="comments">
-  <% book_detail.book_comments.each do |book_comment| %>
+  <% book.book_comments.each do |book_comment| %>
     <tr>
       <td>
         <%= link_to user_path(book_comment.user) do %>
@@ -19,7 +19,7 @@
 </table>
 
 <div class="new-comment">
-  <%= form_with(model:[@book_detail, @book_comment], local: true) do |f| %>
+  <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
     <%= f.text_area :comment, rows:'5',cols:'60' %>
     <%= f.submit "送信" %>
   <% end %>
