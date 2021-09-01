@@ -1,2 +1,3 @@
-## DMM WEBCAMP【アプリケーションを完成させよう2】
-DMM WEBCAMPの学習コンテンツの研修課題です。
+## DMM WEBCAMP【Bookers2】
+・DMM WEBCAMPコンテンツ「課題：アプリケーションを作成してみよう 応用編」<br>
+・ユーザ機能を持ち、読んだ本の感想を投稿するサイト<br>
