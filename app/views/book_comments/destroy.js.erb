@@ -1,1 +1,3 @@
-$("#comments_area").html("<%= j(render 'book_comments/comment', book_comments: @book_comments) %>")
+
+$("#book_<%= @book.id %> .comment-count").html("<%= j(link_to "#{@book.book_comments.count} コメント", book_path(@book)) %>");
+$(".book_comments").html("<%= j(render 'book_comments/comment', book_comments: @book.book_comments) %>");
