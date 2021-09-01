@@ -1,2 +1,1 @@
-$("#comment_list").html("<%= j(render 'book_comments/comments', book_comments: @book_comments) %>");
-$("#book_comments_count").text(<%= @book_comments.count %>);
+$("#comments_area").html("<%= j(render 'book_comments/comment', book_comments: @book_comments) %>")
