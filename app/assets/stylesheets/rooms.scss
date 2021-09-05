@@ -1,3 +1,32 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chat-name {
+  padding: 5px;
+  text-align: center;
+}
+
+.chat-user {
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 0 10px;
+  padding: 5px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  border: 5px solid transparent;
+  border-right: 12px solid #d7ebfe;
+}
