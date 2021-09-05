@@ -1,4 +1,11 @@
-<h2><strong><a href="/users/<%= current_user.id %>"><%= current_user.name %>さん</a>とのチャット</strong></h2>
+<% @entries.each do |e| %>
+  <h2>
+    <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+      <strong><%= e.user.name %>さん</strong>
+    </a>
+    とのチャット
+  </h2>
+<% end %>
 
 <hr>
 <div class="chats">
