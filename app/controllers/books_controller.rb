@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
+  
+  impressionist :actions=> [:show]
 
   def create
     @book = Book.new(book_params)
@@ -23,6 +25,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    impressionist(@book, nil, unique: [:ip_address])
     @user = @book.user
     @books = Book.all
     @book_comment = BookComment.new
