@@ -31,6 +31,7 @@ class BooksController < ApplicationController
     @book_comment = BookComment.new
     @book_comments = @book.book_comments
     
+    
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)
     unless @user.id == current_user.id
