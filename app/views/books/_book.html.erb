@@ -52,9 +52,9 @@
 <br>
 <h2>New book</h2>
 <%= form_with model:book, local:true do |f| %>
-  <p>Title</p>
+  <%= f.label :title %>
   <%= f.text_field :title %>
-  <p>Opinion</p>
+  <%= f.label :opinion %>
   <%= f.text_area :body %>
   <br>
   <%= f.submit 'Create Book', class:'btn btn-success' %>
