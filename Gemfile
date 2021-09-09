@@ -73,3 +73,5 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'impressionist', '~>1.6.1'
 
 gem 'chart-js-rails', '~> 0.1.4'
+
+gem 'dotenv-rails'
