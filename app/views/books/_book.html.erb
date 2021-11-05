@@ -1,4 +1,3 @@
-
 <h2>User info</h2>
 <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
 <table class="table">
@@ -38,7 +37,7 @@
         <%= fields_for @entry do |e| %>
           <%= e.hidden_field :user_id, value: @user.id %>
         <% end %>
-        <%= f.submit "chatを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+        <%= f.submit "chatを始める", class: "btn btn-primary user-show-chat"%>
       <% end %>
     <% end %>
     <% end %>
